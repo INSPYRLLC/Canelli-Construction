@@ -1,119 +1,106 @@
 {
-  "project_name": "E.A. Jones Plumbing Co.",
-  "domain": "Home Service / Plumbing",
-  "theme": "Light",
-  "archetype": "Archetype 4 (Swiss & High-Contrast) adapted for High-End Service",
+  "theme": "dark",
+  "archetype": "5 (Jewel & Luxury)",
+  "brand_name": "Canelli Construction",
+  "design_philosophy": "A premium, cinematic, and highly architectural digital experience. Embraces deep charcoal black backgrounds, striking white typography, and elegant gold accents to convey elite status, trustworthiness, and high-end design focus. Prioritizes large, dramatic imagery, minimalist layouts, and generous negative space.",
   "colors": {
-    "background_primary": "#FFFFFF",
-    "background_secondary": "#F8FAFC",
-    "background_dark": "#0A1128",
-    "text_primary": "#0A1128",
-    "text_secondary": "#475569",
-    "primary_brand": "#0A1128",
-    "accent_electric": "#0055FF",
-    "accent_teal": "#00A3FF",
-    "border_subtle": "#E2E8F0"
+    "background": "#0A0A0A",
+    "surface": "#141414",
+    "surface_secondary": "#1E1E1E",
+    "primary": "#D4AF37",
+    "primary_hover": "#B8962B",
+    "text_main": "#FFFFFF",
+    "text_muted": "#A1A1AA",
+    "border": "#27272A",
+    "glass": "rgba(10, 10, 10, 0.7)"
   },
   "typography": {
-    "headings": {
-      "font_family": "Clash Display, sans-serif",
-      "weight_strategy": "Radical weight contrast (Black vs Light). Do not use Inter.",
-      "tracking": "tracking-tighter",
-      "sizes": {
-        "h1": "text-5xl sm:text-6xl",
-        "h2": "text-4xl sm:text-5xl",
-        "h3": "text-2xl sm:text-3xl",
-        "h4": "text-xl sm:text-2xl"
-      }
+    "font_family": {
+      "heading": "Cabinet Grotesk, sans-serif",
+      "body": "Manrope, sans-serif"
     },
-    "body": {
-      "font_family": "Satoshi, sans-serif",
-      "sizes": {
-        "base": "text-base leading-relaxed",
-        "large": "text-lg leading-relaxed",
-        "small": "text-sm"
-      }
-    },
-    "labels": {
-      "style": "uppercase tracking-[0.2em] text-xs font-bold text-accent_electric"
+    "rules": {
+      "h1": "text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase",
+      "h2": "text-4xl md:text-5xl font-bold tracking-tight",
+      "h3": "text-2xl md:text-3xl font-medium",
+      "body": "text-base md:text-lg text-zinc-400 leading-relaxed",
+      "overline": "text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-[#D4AF37]"
     }
   },
   "layout_and_spacing": {
-    "spacing_scale": "Generous spacing. Use p-8, p-12, p-16, py-24, py-32 for sections.",
-    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
-    "grid_strategy": "Control Room / Swiss Grid hybrid. Avoid symmetric boring cards. Use varied span ratios for the services bento grid (e.g., col-span-2 for primary services, col-span-1 for secondary).",
-    "surface_strategy": {
-      "cards": "Solid background (#FFFFFF), sharp 1px borders (border-border_subtle), no shadow by default, subtle shadow-lg and -translate-y-1 on hover.",
-      "header": "Crystal Glassmorphism: backdrop-blur-xl bg-white/80, 1px subtle bottom border. z-50 sticky.",
-      "emergency_banner": "Retro-Futurism/Terminal look: Deep black/navy background (#0A1128), neon accent text (#00A3FF)."
+    "section_padding": "py-24 md:py-32",
+    "container_width": "max-w-7xl mx-auto px-6 md:px-12",
+    "grid_system": "Use wide gaps (gap-8 to gap-12). Leverage asymmetric bento grids for features and portfolio.",
+    "border_radius": "rounded-none",
+    "shadows": "shadow-2xl shadow-black/50"
+  },
+  "motion_and_interactions": {
+    "hover_effects": "Subtle image scale (scale-105) on hover with a smooth transition (duration-500). Borders should subtly glow or change to the gold accent color.",
+    "scroll_animations": "Use framer-motion for elegant fade-up and subtle Y-axis translations on scroll.",
+    "buttons": "Solid gold primary buttons with black text. Ghost or outline secondary buttons with gold borders and hover states."
+  },
+  "sections_and_components": [
+    {
+      "name": "Sticky Header",
+      "guidelines": "Use crystal glassmorphism (backdrop-blur-xl bg-[#0A0A0A]/70) with a 1px bottom border (border-white/10). Include Logo, Nav Links, and a 'Get an Estimate' CTA."
+    },
+    {
+      "name": "Hero Section",
+      "guidelines": "Full-screen (h-screen). Use 'hero_architecture' image as background. Heavy dark overlay (bg-black/60). Center or left-aligned massive heading, gold overline, dual CTAs."
+    },
+    {
+      "name": "About Section",
+      "guidelines": "Story-driven split layout. Bold typography emphasizing '20+ Years of Excellence'. Use 'blueprint_review' image to show professional process."
+    },
+    {
+      "name": "Services Grid",
+      "guidelines": "7 services. Use a dynamic grid (e.g., 3 columns, some spanning 2 columns). Each card uses surface color (#141414), 1px subtle border, gold hover effect."
+    },
+    {
+      "name": "Portfolio / Featured Projects",
+      "guidelines": "Use Shadcn Tabs for category filters (All, Residential, ADU, Commercial). Display 'luxury_interior' and 'exterior' images in a large masonry or bento grid."
+    },
+    {
+      "name": "Process Section",
+      "guidelines": "4 visual steps (Suitability, Design, Permits, Build). Use vertical timeline or horizontal cards with large gold numbers (01, 02, etc.) and 'concrete_texture' subtle backgrounds."
+    },
+    {
+      "name": "Service Area",
+      "guidelines": "Focus on Charlotte, NC. Use 'charlotte_skyline' image with a dark gradient overlay and large typography highlighting the region."
+    },
+    {
+      "name": "Estimator Tool",
+      "guidelines": "Interactive calculator using Shadcn sliders, selects, and inputs. Should look technical but premium. Housed in a #141414 card with gold accents."
+    },
+    {
+      "name": "Contact / Footer",
+      "guidelines": "Massive typography for 'Let's Build'. Integrated form (Shadcn) and styled dark Google Maps embed block. Generous padding."
     }
-  },
-  "components": {
-    "buttons": {
-      "primary": "bg-primary_brand text-white hover:bg-accent_electric transition-colors duration-300 rounded-none px-8 py-4 font-semibold",
-      "secondary": "bg-white text-primary_brand border border-primary_brand hover:bg-gray-50 transition-colors duration-300 rounded-none px-8 py-4 font-semibold",
-      "accent": "bg-accent_electric text-white hover:bg-blue-700 transition-colors duration-300 rounded-none px-8 py-4 font-semibold"
-    },
-    "hero_overlay": "bg-gradient-to-r from-[#0A1128]/90 via-[#0A1128]/60 to-transparent for text readability while letting the image breathe.",
-    "testimonials": "Editorial feel. Use large font-light for the quote, high contrast, immense negative space.",
-    "forms": "Use Shadcn customized inputs. Square corners, 1px border, focus:ring-accent_electric."
-  },
-  "motion": {
-    "hover_states": "All interactive elements MUST have transition-transform or transition-colors.",
-    "scroll_animations": "Use staggered fade-up for grid items. Subtle parallax on hero image."
-  },
-  "icons_and_assets": {
-    "library": "lucide-react for standard icons. Consider @phosphor-icons/react for high-end duotone feel if needed."
-  },
-  "testing": {
-    "requirements": "All interactive and key informational elements MUST include a data-testid attribute (e.g., data-testid='hero-cta-button')."
-  },
+  ],
   "image_urls": {
-    "hero_background": {
-      "url": "https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg",
-      "description": "High-quality close-up of plumber's hands installing steel pipes. Use as the main hero background with the specified dark navy gradient overlay."
-    },
-    "about_section": {
-      "url": "https://images.unsplash.com/photo-1635221798248-8a3452ad07cd",
-      "description": "Portrait of a mature male worker leaning against a wall, representing the veteran/family-owned trustworthy plumber."
-    },
-    "service_water_heater": {
-      "url": "https://images.unsplash.com/photo-1676210134190-3f2c0d5cf58d",
-      "description": "Man fixing a water heater in a room. Use in the services grid."
-    },
-    "service_fixtures": {
-      "url": "https://images.unsplash.com/photo-1758548157466-7c454382035a",
-      "description": "Luxury modern bathroom with marble and a bathtub. Use to showcase fixture installation service."
-    },
-    "emergency_banner_bg": {
-      "url": "https://images.unsplash.com/photo-1675973839743-64eb985b0184",
-      "description": "Abstract dark water and rocks. Use as a background texture for the 24/7 Emergency banner."
-    },
-    "trust_badges": [
-      {
-        "url": "https://images.unsplash.com/photo-1586867026567-b9b63ae58472",
-        "description": "Marshall brand logo. Use as a dummy sponsor/partner logo in the trust badges section (apply grayscale/opacity)."
-      },
-      {
-        "url": "https://images.unsplash.com/photo-1644166186783-35d911470ff0",
-        "description": "Mercedes emblem. Use as a dummy sponsor/partner logo in the trust badges section (apply grayscale/opacity)."
-      },
-      {
-        "url": "https://images.unsplash.com/photo-1758560902402-0785e1ff77db",
-        "description": "Coca-cola logo. Use as a dummy sponsor/partner logo in the trust badges section (apply grayscale/opacity filter to make it look like a unified partner row)."
-      }
-    ]
+    "hero_architecture": "https://images.unsplash.com/photo-1774685110718-c5b4fe026144?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsdXh1cnklMjBob21lJTIwZXh0ZXJpb3IlMjBhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzc1NTkyODY5fDA&ixlib=rb-4.1.0&q=85",
+    "luxury_interior_1": "https://images.unsplash.com/photo-1760072513442-9872656c1b07?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtaW5pbWFsaXN0JTIwaW50ZXJpb3IlMjBsaXZpbmclMjByb29tJTIwYXJjaGl0ZWN0dXJlfGVufDB8fHx8MTc3NTU5Mjg2OXww&ixlib=rb-4.1.0&q=85",
+    "luxury_interior_2": "https://images.unsplash.com/photo-1757262798620-c2cc40cfb440?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBtaW5pbWFsaXN0JTIwaW50ZXJpb3IlMjBsaXZpbmclMjByb29tJTIwYXJjaGl0ZWN0dXJlfGVufDB8fHx8MTc3NTU5Mjg2OXww&ixlib=rb-4.1.0&q=85",
+    "exterior_1": "https://images.unsplash.com/photo-1766603636700-e9d80473f40f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBsdXh1cnklMjBob21lJTIwZXh0ZXJpb3IlMjBhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzc1NTkyODY5fDA&ixlib=rb-4.1.0&q=85",
+    "exterior_2": "https://images.unsplash.com/photo-1622015663319-e97e697503ee?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBsdXh1cnklMjBob21lJTIwZXh0ZXJpb3IlMjBhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzc1NTkyODY5fDA&ixlib=rb-4.1.0&q=85",
+    "blueprint_review": "https://images.unsplash.com/photo-1772442198624-4fc4d7281e89?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBibHVlcHJpbnRzJTIwYXJjaGl0ZWN0dXJlJTIwcGxhbnxlbnwwfHx8fDE3NzU1OTI4ODJ8MA&ixlib=rb-4.1.0&q=85",
+    "blueprint_detail": "https://images.pexels.com/photos/4458205/pexels-photo-4458205.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "concrete_texture": "https://images.unsplash.com/photo-1633319987325-aae32f3d8dd3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxjb25jcmV0ZSUyMHdhbGwlMjB0ZXh0dXJlJTIwZGFya3xlbnwwfHx8fDE3NzU1OTI4ODJ8MA&ixlib=rb-4.1.0&q=85",
+    "charlotte_skyline": "https://images.unsplash.com/photo-1582555645330-9fa5f195e1ca?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2OTV8MHwxfHNlYXJjaHwyfHxjaGFybG90dGUlMjBub3J0aCUyMGNhcm9saW5hJTIwc2t5bGluZSUyMHNreWxpbmV8ZW58MHx8fHwxNzc1NTkyODgyfDA&ixlib=rb-4.1.0&q=85",
+    "abstract_logo_texture": "https://images.unsplash.com/photo-1763303775599-08d20753a9ec?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBtaW5pbWFsaXN0JTIwY29uc3RydWN0aW9uJTIwbG9nbyUyMHdoaXRlJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3NzU1OTI4ODJ8MA&ixlib=rb-4.1.0&q=85"
   },
-  "instructions_to_main_agent": [
-    "Do NOT use Inter, Roboto, or generic sans-serif for headings. Use Clash Display or a similar premium architectural font from Google Fonts (e.g., Cabinet Grotesk, Syne is banned, so stick to Outfit or Space Grotesk if Clash isn't available, or inject Clash Display via CDN).",
-    "Ensure the design does not look like a generic SaaS site. This is a premium home service company.",
-    "Implement the 'Crystal Glass' header. It must float above the content with a high backdrop-blur and a 1px subtle bottom border.",
-    "For the hero section, do not use a flat blanket black overlay. Use the specified gradient overlay (bg-gradient-to-r from-[#0A1128]/90 via-[#0A1128]/60 to-transparent) so the image is visible on the right side.",
-    "Use generous padding. Standard sections should be py-24 or py-32.",
-    "Implement a bento-style grid for the 'Services' section. Mix col-span-1 and col-span-2 to create asymmetry. Avoid perfectly uniform squares.",
-    "The 24/7 Emergency Banner should be highly contrasting. Deep navy (#0A1128) with Electric Cerulean (#00A3FF) highlights.",
-    "Add 'data-testid' to all buttons, links, form inputs, and major sections.",
-    "Use pure HTML + Tailwind for structural marketing layouts. Only use Shadcn for forms or complex interactive pieces.",
-    "Never use placeholder image services. Use ONLY the URLs provided in the image_urls section."
-  ]
+  "required_shadcn_components": [
+    "button",
+    "input",
+    "textarea",
+    "form",
+    "slider",
+    "select",
+    "tabs",
+    "card",
+    "accordion"
+  ],
+  "required_icons_library": "lucide-react",
+  "testing_attributes": "All interactive elements (buttons, inputs, tabs) MUST have data-testid attributes (e.g., data-testid='hero-cta-button').",
+  "instructions_to_main_agent": "Use Next.js app router or React Vite structure. Prioritize pure HTML/Tailwind for layout wrappers to allow maximum asymmetry, reserving Shadcn strictly for interactive elements (Forms, Tabs, Slider). Ensure 'Cabinet Grotesk' is imported (e.g., via Fontshare) and 'Manrope' via Google Fonts. Do NOT use standard gray. Use the defined charcoal black (#0A0A0A) and gold (#D4AF37) palette exclusively."
 }
