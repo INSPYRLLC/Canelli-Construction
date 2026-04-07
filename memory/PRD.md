@@ -1,65 +1,72 @@
-# E.A. Jones Plumbing Co. - Product Requirements Document
+# Canelli Construction - Product Requirements Document
 
 ## Original Problem Statement
-Build a modern, high-converting, visually appealing website for E.A. Jones Plumbing Co., based in Charlotte, North Carolina. The website should feature a premium design with deep navy blue, white, and teal accents, bold typography, and clear CTAs to convert visitors into phone calls and leads.
+Build a premium, modern, visually stunning website for Canelli Construction, a luxury construction company in Charlotte, NC. Dark luxury aesthetic with charcoal black, gold accents, minimalist bold layout, cinematic visuals, and high-converting design.
 
 ## User Personas
-1. **Homeowners** - Need reliable plumbing services for repairs, installations, and emergencies
-2. **Property Managers** - Require ongoing plumbing maintenance for rental properties
-3. **Business Owners** - Need commercial plumbing services
+1. **Affluent Homeowners** - Seeking custom home builds and luxury renovations
+2. **Property Investors** - Looking for residential development and ADU construction
+3. **Business Owners** - Need commercial construction services
 
 ## Core Requirements
-- Sticky header with call button
-- Hero section with headline, subheadline, CTAs, trust badges
-- About section (family-owned, veteran-operated, 30+ years)
-- Services grid (6 services with icons)
-- Why Choose Us section (6 reasons)
-- Testimonials section (4 customer reviews)
-- Service Area section (Charlotte, Mecklenburg County)
-- 24/7 Emergency Banner
-- Contact form with database storage
-- Click-to-call functionality
-- Mobile-optimized design
+- Full-screen hero with dramatic imagery
+- Dynamic portfolio with category filtering (database-driven)
+- Cost estimator calculator
+- Contact form with email notifications
+- Google Maps integration
+- Premium dark theme with gold accents
 
 ## What's Been Implemented (December 2025)
-- [x] Full landing page with all 9 sections
-- [x] Sticky glassmorphism header with navigation
-- [x] Hero section with gradient overlay, CTAs, trust badges
-- [x] About section with technician image and experience badge
-- [x] Services grid (Water Heater, Leak Detection, Drain Cleaning, Fixture Installation, Repiping, Emergency)
-- [x] Why Choose Us (6 feature cards)
-- [x] Testimonials (4 customer reviews with ratings)
-- [x] Service Area with map placeholder
-- [x] Emergency banner with prominent CTA
-- [x] Contact form with database storage (MongoDB)
-- [x] Footer with company info and service links
-- [x] Mobile menu with toggle
-- [x] Smooth scroll navigation
-- [x] Backend API: POST/GET /api/contact
+- [x] Luxury dark theme (#0A0A0A, #141414, gold #D4AF37)
+- [x] Glassmorphism sticky header with navigation
+- [x] Full-screen hero with gradient overlay, CTAs, trust indicators
+- [x] About section with 20+ years badge
+- [x] Services grid (7 services with hover effects)
+- [x] Dynamic Portfolio with category tabs (Residential, Commercial, ADU, Remodel)
+- [x] Portfolio CRUD API (create, read, update, delete projects)
+- [x] Auto-seeding of sample projects
+- [x] Why Choose Us (5 differentiators)
+- [x] Process timeline (4 steps: Suitability, Design, Permits, Build)
+- [x] Service Area with Charlotte skyline background
+- [x] Feature sections (Turnkey Homes + ADU Construction)
+- [x] Testimonials (4 client reviews)
+- [x] Cost Estimator Calculator with backend API
+- [x] CTA Section
+- [x] Contact form with email notification (Resend integration - needs API key)
+- [x] Google Maps embed for Charlotte, NC
+- [x] Footer with company info and links
 
 ## Tech Stack
-- **Frontend**: React, Tailwind CSS, Lucide Icons, Shadcn UI components
-- **Backend**: FastAPI, Motor (MongoDB async driver)
+- **Frontend**: React, Tailwind CSS, Lucide Icons, Shadcn UI (Tabs, Slider, Select, Input, Textarea)
+- **Backend**: FastAPI, Motor (MongoDB async driver), Resend (email)
 - **Database**: MongoDB
-- **Fonts**: Outfit (headings), Space Grotesk (body)
+- **Fonts**: Cabinet Grotesk (headings), Manrope (body)
+
+## API Endpoints
+- POST/GET /api/contact - Contact form submissions
+- POST/GET/PUT/DELETE /api/projects - Portfolio CRUD
+- POST /api/projects/seed - Seed sample projects
+- POST /api/estimate - Cost calculator
 
 ## Prioritized Backlog
 ### P0 (Critical) - COMPLETED
 - All core sections implemented
-- Contact form functional
+- Portfolio with filtering
+- Cost estimator functional
+- Contact form working
 
 ### P1 (High Priority)
-- Real contact information
-- Google Analytics integration
-- SEO meta tags optimization
+- Add Resend API key for email notifications
+- Admin dashboard for portfolio management
+- Project detail pages
 
 ### P2 (Medium Priority)
 - Blog/articles section
-- Service detail pages
-- Online booking integration
+- 3D virtual tours integration
+- Online consultation booking
 
 ## Next Tasks
-1. Add real phone number and contact details
-2. Implement Google Analytics
-3. Add SEO meta tags and schema markup
-4. Consider adding testimonials from Google reviews API
+1. Configure Resend API key for email notifications (RESEND_API_KEY in .env)
+2. Build admin dashboard for portfolio CRUD
+3. Add project detail pages with full descriptions
+4. Consider video testimonials integration
