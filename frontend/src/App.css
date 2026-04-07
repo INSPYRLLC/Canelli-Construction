@@ -1,149 +1,175 @@
-/* Hero section background overlay */
-.hero-overlay {
-    background: linear-gradient(to right, rgba(10, 17, 40, 0.95) 0%, rgba(10, 17, 40, 0.7) 50%, rgba(10, 17, 40, 0.3) 100%);
-}
-
-/* Glassmorphism header */
+/* Glassmorphism Header */
 .glass-header {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: rgba(255, 255, 255, 0.85);
-    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(10, 10, 10, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Service card hover effect */
+/* Hero overlay */
+.hero-overlay {
+    background: linear-gradient(to right, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.7) 50%, rgba(10, 10, 10, 0.4) 100%);
+}
+
+/* Service card */
 .service-card {
-    transition: all 0.3s ease;
+    background: #141414;
+    border: 1px solid #27272A;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(10, 17, 40, 0.1);
+    border-color: #D4AF37;
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-/* Button hover effects */
-.btn-primary {
-    background-color: #0A1128;
-    color: white;
+.service-card:hover .service-icon {
+    background: #D4AF37;
+    color: #0A0A0A;
+}
+
+/* Portfolio card */
+.portfolio-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-card:hover {
+    transform: scale(1.02);
+}
+
+.portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-card:hover .portfolio-image {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.5) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+}
+
+.portfolio-image {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Process step */
+.process-step {
+    position: relative;
+}
+
+.process-step::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    right: -50%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, #27272A, transparent);
+}
+
+.process-step:last-child::after {
+    display: none;
+}
+
+/* Gold button */
+.btn-gold {
+    background: #D4AF37;
+    color: #0A0A0A;
+    font-weight: 600;
     transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
-    background-color: #0055FF;
+.btn-gold:hover {
+    background: #B8962B;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
 }
 
-.btn-secondary {
-    background-color: white;
-    color: #0A1128;
-    border: 2px solid #0A1128;
+/* Ghost button */
+.btn-ghost {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #D4AF37;
+    font-weight: 600;
     transition: all 0.3s ease;
 }
 
-.btn-secondary:hover {
-    background-color: #F8FAFC;
-}
-
-.btn-accent {
-    background-color: #0055FF;
-    color: white;
-    transition: all 0.3s ease;
-}
-
-.btn-accent:hover {
-    background-color: #0044CC;
-}
-
-/* Emergency banner */
-.emergency-banner {
-    background: linear-gradient(135deg, #0A1128 0%, #1a2744 100%);
+.btn-ghost:hover {
+    background: #D4AF37;
+    color: #0A0A0A;
 }
 
 /* Testimonial card */
 .testimonial-card {
-    transition: all 0.3s ease;
+    background: #141414;
+    border: 1px solid #27272A;
+    transition: all 0.4s ease;
 }
 
 .testimonial-card:hover {
-    transform: scale(1.02);
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-4px);
 }
 
-/* Feature icon container */
-.feature-icon {
-    transition: all 0.3s ease;
+/* Feature card */
+.feature-card {
+    background: #141414;
+    border: 1px solid #27272A;
+    transition: all 0.4s ease;
 }
 
-.feature-icon:hover {
-    transform: scale(1.1);
+.feature-card:hover {
+    border-color: #D4AF37;
 }
 
-/* Input focus styles */
-input:focus, textarea:focus {
+/* Estimator container */
+.estimator-container {
+    background: linear-gradient(135deg, #141414 0%, #1E1E1E 100%);
+    border: 1px solid #27272A;
+}
+
+/* Gold accent text */
+.text-gold {
+    color: #D4AF37;
+}
+
+/* Gold border on focus */
+input:focus, textarea:focus, select:focus {
     outline: none;
-    border-color: #0055FF;
-    box-shadow: 0 0 0 3px rgba(0, 85, 255, 0.1);
-}
-
-/* Smooth scroll anchor offset for sticky header */
-section[id] {
-    scroll-margin-top: 80px;
-}
-
-/* Trust badge styling */
-.trust-badge {
-    transition: all 0.3s ease;
-}
-
-.trust-badge:hover {
-    transform: translateY(-2px);
+    border-color: #D4AF37 !important;
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
 }
 
 /* Map container */
 .map-container {
-    background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+    filter: grayscale(100%) invert(90%) contrast(90%);
 }
 
-/* Gradient text */
-.gradient-text {
-    background: linear-gradient(90deg, #0055FF, #00A3FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+/* Number display */
+.number-display {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 900;
+    color: #D4AF37;
+    line-height: 1;
 }
 
-/* Mobile menu animation */
-.mobile-menu-enter {
-    opacity: 0;
-    transform: translateY(-10px);
-}
-
-.mobile-menu-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: all 0.2s ease;
-}
-
-/* Click to call pulse */
-.call-pulse {
-    position: relative;
-}
-
-.call-pulse::before {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border-radius: inherit;
-    background: #0055FF;
-    opacity: 0;
-    animation: callPulse 2s ease-in-out infinite;
-}
-
-@keyframes callPulse {
-    0%, 100% {
-        opacity: 0;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.3;
-        transform: scale(1.05);
-    }
+/* Overline text */
+.overline {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #D4AF37;
 }

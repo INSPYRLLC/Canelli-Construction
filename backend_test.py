@@ -3,13 +3,14 @@ import sys
 import json
 from datetime import datetime
 
-class PlumbingAPITester:
+class CanelliConstructionAPITester:
     def __init__(self, base_url="https://premium-plumbing-nc.preview.emergentagent.com"):
         self.base_url = base_url
         self.api_url = f"{base_url}/api"
         self.tests_run = 0
         self.tests_passed = 0
         self.test_results = []
+        self.created_project_id = None
 
     def run_test(self, name, method, endpoint, expected_status, data=None, headers=None):
         """Run a single API test"""
@@ -26,6 +27,10 @@ class PlumbingAPITester:
                 response = requests.get(url, headers=headers, timeout=10)
             elif method == 'POST':
                 response = requests.post(url, json=data, headers=headers, timeout=10)
+            elif method == 'PUT':
+                response = requests.put(url, json=data, headers=headers, timeout=10)
+            elif method == 'DELETE':
+                response = requests.delete(url, headers=headers, timeout=10)
             else:
                 raise ValueError(f"Unsupported method: {method}")
 
@@ -92,8 +97,10 @@ class PlumbingAPITester:
         """Test contact form submission"""
         test_data = {
             "name": "John Test",
-            "phone": "(704) 555-9999",
-            "issue": "Test plumbing issue - leak in kitchen sink"
+            "phone": "(980) 555-9999",
+            "email": "john.test@example.com",
+            "project_type": "custom_home",
+            "message": "Test message for custom home construction project"
         }
         
         return self.run_test(
@@ -108,7 +115,7 @@ class PlumbingAPITester:
         """Test contact form with missing fields"""
         test_data = {
             "name": "John Test"
-            # Missing phone and issue fields
+            # Missing required fields
         }
         
         return self.run_test(
@@ -128,32 +135,139 @@ class PlumbingAPITester:
             200
         )
 
-    def test_status_check_creation(self):
-        """Test status check creation"""
+    def test_seed_projects(self):
+        """Test seeding sample projects"""
+        return self.run_test(
+            "Seed Sample Projects",
+            "POST",
+            "projects/seed",
+            200
+        )
+
+    def test_get_projects(self):
+        """Test getting all projects"""
+        return self.run_test(
+            "Get All Projects",
+            "GET",
+            "projects",
+            200
+        )
+
+    def test_get_projects_by_category(self):
+        """Test getting projects by category"""
+        return self.run_test(
+            "Get Projects by Category (residential)",
+            "GET",
+            "projects?category=residential",
+            200
+        )
+
+    def test_create_project(self):
+        """Test creating a new project"""
         test_data = {
-            "client_name": "Test Client"
+            "title": "Test Custom Home",
+            "category": "residential",
+            "description": "A test custom home project for API testing",
+            "image_url": "https://images.unsplash.com/photo-1622015663319-e97e697503ee?w=800",
+            "location": "Charlotte, NC",
+            "year": "2024",
+            "featured": False
+        }
+        
+        success, response_data = self.run_test(
+            "Create New Project",
+            "POST",
+            "projects",
+            200,
+            data=test_data
+        )
+        
+        if success and response_data and 'id' in response_data:
+            self.created_project_id = response_data['id']
+            print(f"   Created project ID: {self.created_project_id}")
+        
+        return success, response_data
+
+    def test_get_project_by_id(self):
+        """Test getting a specific project by ID"""
+        if not self.created_project_id:
+            print("⚠️  Skipping - No project ID available")
+            return True, {}
+            
+        return self.run_test(
+            "Get Project by ID",
+            "GET",
+            f"projects/{self.created_project_id}",
+            200
+        )
+
+    def test_update_project(self):
+        """Test updating a project"""
+        if not self.created_project_id:
+            print("⚠️  Skipping - No project ID available")
+            return True, {}
+            
+        update_data = {
+            "title": "Updated Test Custom Home",
+            "featured": True
         }
         
         return self.run_test(
-            "Status Check Creation",
+            "Update Project",
+            "PUT",
+            f"projects/{self.created_project_id}",
+            200,
+            data=update_data
+        )
+
+    def test_delete_project(self):
+        """Test deleting a project"""
+        if not self.created_project_id:
+            print("⚠️  Skipping - No project ID available")
+            return True, {}
+            
+        return self.run_test(
+            "Delete Project",
+            "DELETE",
+            f"projects/{self.created_project_id}",
+            200
+        )
+
+    def test_cost_estimator(self):
+        """Test cost estimator calculation"""
+        test_data = {
+            "project_type": "custom_home",
+            "square_feet": 2500,
+            "finish_level": "premium"
+        }
+        
+        return self.run_test(
+            "Cost Estimator Calculation",
             "POST",
-            "status",
+            "estimate",
             200,
             data=test_data
         )
 
-    def test_get_status_checks(self):
-        """Test getting status checks"""
+    def test_cost_estimator_validation(self):
+        """Test cost estimator with invalid data"""
+        test_data = {
+            "project_type": "invalid_type",
+            "square_feet": 2500,
+            "finish_level": "premium"
+        }
+        
         return self.run_test(
-            "Get Status Checks",
-            "GET",
-            "status",
-            200
+            "Cost Estimator Validation (Invalid Type)",
+            "POST",
+            "estimate",
+            400,  # Expecting validation error
+            data=test_data
         )
 
     def run_all_tests(self):
         """Run all API tests"""
-        print("🚀 Starting E.A. Jones Plumbing API Tests")
+        print("🚀 Starting Canelli Construction API Tests")
         print(f"   Base URL: {self.base_url}")
         print(f"   API URL: {self.api_url}")
         print("=" * 60)
@@ -166,9 +280,18 @@ class PlumbingAPITester:
         self.test_contact_form_validation()
         self.test_get_contact_submissions()
         
-        # Test status check functionality
-        self.test_status_check_creation()
-        self.test_get_status_checks()
+        # Test project/portfolio functionality
+        self.test_seed_projects()
+        self.test_get_projects()
+        self.test_get_projects_by_category()
+        self.test_create_project()
+        self.test_get_project_by_id()
+        self.test_update_project()
+        self.test_delete_project()
+        
+        # Test cost estimator functionality
+        self.test_cost_estimator()
+        self.test_cost_estimator_validation()
 
         # Print summary
         print("\n" + "=" * 60)
@@ -186,7 +309,7 @@ class PlumbingAPITester:
             return 1
 
 def main():
-    tester = PlumbingAPITester()
+    tester = CanelliConstructionAPITester()
     return tester.run_all_tests()
 
 if __name__ == "__main__":
