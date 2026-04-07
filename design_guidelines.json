@@ -1,0 +1,119 @@
+{
+  "project_name": "E.A. Jones Plumbing Co.",
+  "domain": "Home Service / Plumbing",
+  "theme": "Light",
+  "archetype": "Archetype 4 (Swiss & High-Contrast) adapted for High-End Service",
+  "colors": {
+    "background_primary": "#FFFFFF",
+    "background_secondary": "#F8FAFC",
+    "background_dark": "#0A1128",
+    "text_primary": "#0A1128",
+    "text_secondary": "#475569",
+    "primary_brand": "#0A1128",
+    "accent_electric": "#0055FF",
+    "accent_teal": "#00A3FF",
+    "border_subtle": "#E2E8F0"
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Clash Display, sans-serif",
+      "weight_strategy": "Radical weight contrast (Black vs Light). Do not use Inter.",
+      "tracking": "tracking-tighter",
+      "sizes": {
+        "h1": "text-5xl sm:text-6xl",
+        "h2": "text-4xl sm:text-5xl",
+        "h3": "text-2xl sm:text-3xl",
+        "h4": "text-xl sm:text-2xl"
+      }
+    },
+    "body": {
+      "font_family": "Satoshi, sans-serif",
+      "sizes": {
+        "base": "text-base leading-relaxed",
+        "large": "text-lg leading-relaxed",
+        "small": "text-sm"
+      }
+    },
+    "labels": {
+      "style": "uppercase tracking-[0.2em] text-xs font-bold text-accent_electric"
+    }
+  },
+  "layout_and_spacing": {
+    "spacing_scale": "Generous spacing. Use p-8, p-12, p-16, py-24, py-32 for sections.",
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "grid_strategy": "Control Room / Swiss Grid hybrid. Avoid symmetric boring cards. Use varied span ratios for the services bento grid (e.g., col-span-2 for primary services, col-span-1 for secondary).",
+    "surface_strategy": {
+      "cards": "Solid background (#FFFFFF), sharp 1px borders (border-border_subtle), no shadow by default, subtle shadow-lg and -translate-y-1 on hover.",
+      "header": "Crystal Glassmorphism: backdrop-blur-xl bg-white/80, 1px subtle bottom border. z-50 sticky.",
+      "emergency_banner": "Retro-Futurism/Terminal look: Deep black/navy background (#0A1128), neon accent text (#00A3FF)."
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary_brand text-white hover:bg-accent_electric transition-colors duration-300 rounded-none px-8 py-4 font-semibold",
+      "secondary": "bg-white text-primary_brand border border-primary_brand hover:bg-gray-50 transition-colors duration-300 rounded-none px-8 py-4 font-semibold",
+      "accent": "bg-accent_electric text-white hover:bg-blue-700 transition-colors duration-300 rounded-none px-8 py-4 font-semibold"
+    },
+    "hero_overlay": "bg-gradient-to-r from-[#0A1128]/90 via-[#0A1128]/60 to-transparent for text readability while letting the image breathe.",
+    "testimonials": "Editorial feel. Use large font-light for the quote, high contrast, immense negative space.",
+    "forms": "Use Shadcn customized inputs. Square corners, 1px border, focus:ring-accent_electric."
+  },
+  "motion": {
+    "hover_states": "All interactive elements MUST have transition-transform or transition-colors.",
+    "scroll_animations": "Use staggered fade-up for grid items. Subtle parallax on hero image."
+  },
+  "icons_and_assets": {
+    "library": "lucide-react for standard icons. Consider @phosphor-icons/react for high-end duotone feel if needed."
+  },
+  "testing": {
+    "requirements": "All interactive and key informational elements MUST include a data-testid attribute (e.g., data-testid='hero-cta-button')."
+  },
+  "image_urls": {
+    "hero_background": {
+      "url": "https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg",
+      "description": "High-quality close-up of plumber's hands installing steel pipes. Use as the main hero background with the specified dark navy gradient overlay."
+    },
+    "about_section": {
+      "url": "https://images.unsplash.com/photo-1635221798248-8a3452ad07cd",
+      "description": "Portrait of a mature male worker leaning against a wall, representing the veteran/family-owned trustworthy plumber."
+    },
+    "service_water_heater": {
+      "url": "https://images.unsplash.com/photo-1676210134190-3f2c0d5cf58d",
+      "description": "Man fixing a water heater in a room. Use in the services grid."
+    },
+    "service_fixtures": {
+      "url": "https://images.unsplash.com/photo-1758548157466-7c454382035a",
+      "description": "Luxury modern bathroom with marble and a bathtub. Use to showcase fixture installation service."
+    },
+    "emergency_banner_bg": {
+      "url": "https://images.unsplash.com/photo-1675973839743-64eb985b0184",
+      "description": "Abstract dark water and rocks. Use as a background texture for the 24/7 Emergency banner."
+    },
+    "trust_badges": [
+      {
+        "url": "https://images.unsplash.com/photo-1586867026567-b9b63ae58472",
+        "description": "Marshall brand logo. Use as a dummy sponsor/partner logo in the trust badges section (apply grayscale/opacity)."
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1644166186783-35d911470ff0",
+        "description": "Mercedes emblem. Use as a dummy sponsor/partner logo in the trust badges section (apply grayscale/opacity)."
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1758560902402-0785e1ff77db",
+        "description": "Coca-cola logo. Use as a dummy sponsor/partner logo in the trust badges section (apply grayscale/opacity filter to make it look like a unified partner row)."
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Do NOT use Inter, Roboto, or generic sans-serif for headings. Use Clash Display or a similar premium architectural font from Google Fonts (e.g., Cabinet Grotesk, Syne is banned, so stick to Outfit or Space Grotesk if Clash isn't available, or inject Clash Display via CDN).",
+    "Ensure the design does not look like a generic SaaS site. This is a premium home service company.",
+    "Implement the 'Crystal Glass' header. It must float above the content with a high backdrop-blur and a 1px subtle bottom border.",
+    "For the hero section, do not use a flat blanket black overlay. Use the specified gradient overlay (bg-gradient-to-r from-[#0A1128]/90 via-[#0A1128]/60 to-transparent) so the image is visible on the right side.",
+    "Use generous padding. Standard sections should be py-24 or py-32.",
+    "Implement a bento-style grid for the 'Services' section. Mix col-span-1 and col-span-2 to create asymmetry. Avoid perfectly uniform squares.",
+    "The 24/7 Emergency Banner should be highly contrasting. Deep navy (#0A1128) with Electric Cerulean (#00A3FF) highlights.",
+    "Add 'data-testid' to all buttons, links, form inputs, and major sections.",
+    "Use pure HTML + Tailwind for structural marketing layouts. Only use Shadcn for forms or complex interactive pieces.",
+    "Never use placeholder image services. Use ONLY the URLs provided in the image_urls section."
+  ]
+}
